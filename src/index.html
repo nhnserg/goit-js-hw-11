@@ -8,15 +8,25 @@
     <script type="module" src="./index.js"></script>
   </head>
   <body>
-    <form class="search-form" id="search-form">
-      <input
-        type="text"
-        name="searchQuery"
-        autocomplete="off"
-        placeholder="Search images..."
-      />
-      <button type="submit">Search</button>
-    </form>
-    <include src="./partials/example.html"></include>
+    <header>
+      <div class="container">
+        <form class="search-form" id="search-form">
+          <input
+            type="text"
+            name="searchQuery"
+            autocomplete="off"
+            placeholder="Search images..."
+          />
+          <button type="submit">Search</button>
+        </form>
+      </div>
+    </header>
+    <div class="gallery">
+      <!---- Картки із зображенням-->
+    </div>
+    <div>
+      <button type="button" class="load-more">Load More</button>
+    </div>
+    <!-- <include src="./partials/example.html"></include> не зрозумів для чого це потрібно назараз? -->
   </body>
 </html>

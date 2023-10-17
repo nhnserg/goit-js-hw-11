@@ -11,7 +11,7 @@ const loadMoreButton = document.querySelector('.load-more');
 const gallery = document.querySelector('.gallery');
 
 const lightbox = new SimpleLightbox('.photo-card a');
-
+// очишуємо галерею
 function clearGallery() {
   gallery.innerHTML = '';
 }
@@ -23,16 +23,16 @@ function showLoadMoreButton() {
 function hideLoadMoreButton() {
   loadMoreButton.style.display = 'none';
 }
-
+// плавный анимированый скролл  
 function scrollToGallery() {
   const { height: cardHeight } =
-    gallery.lastElementChild.getBoundingClientRect();
+    gallery.lastElementChild.getBoundingClientRect(); 
   window.scrollBy({
     top: cardHeight * 2,
     behavior: 'smooth',
   });
 }
-
+// Динамічна розмітка сторінки виповненна за допомогою методу мап і перевереда в строку методом join() для оновлення данних галереї
 function updateGallery(images) {
   const galleryHTML = images
     .map(
@@ -53,9 +53,9 @@ function updateGallery(images) {
   gallery.insertAdjacentHTML('beforeend', galleryHTML);
   lightbox.refresh();
 }
-
+// Асинхронна функція яка використовуєтся для пошуку зображень із query і номера сторінки
 async function searchImages(query, page = 1) {
-  if (page === 1) {
+  if (page === 1) {   
     clearGallery();
     currentPage = 1;
   }
@@ -90,7 +90,7 @@ async function searchImages(query, page = 1) {
     console.error('Ошибка', error);
   }
 }
-function handleSearchFormSubmit(e) {
+function handleSearchFormSubmit(e) { // обробка форми пошука
   e.preventDefault();
   const searchQuery = searchForm.searchQuery.value.trim();
   if (searchQuery !== '') {
@@ -98,7 +98,7 @@ function handleSearchFormSubmit(e) {
   }
 }
 
-function handleLoadMoreButtonClick() {
+function handleLoadMoreButtonClick() { //
   const searchQuery = searchForm.searchQuery.value.trim();
   if (searchQuery !== '') {
     currentPage += 1;
